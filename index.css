@@ -1,0 +1,254 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 84% 5%; /* Darker, richer blue */
+    --foreground: 210 20% 98%;
+
+    --card: 222 84% 8%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222 84% 4%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 48 95% 58%; /* More vibrant gold */
+    --primary-foreground: 222 84% 5%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 215 28% 17%;
+    --accent-foreground: 48 95% 58%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 28% 12%; /* Slightly more visible borders */
+    --input: 215 28% 12%;
+    --ring: 48 95% 58%;
+
+    --radius: 0.75rem; /* More rounded like Google Material */
+  }
+ 
+  /* In a real app, you would define a .light class here for light mode */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, hsl(var(--primary) / 0.1), hsl(var(--background)), #111827, hsl(var(--primary) / 0.15));
+  background-size: 400% 400%;
+  animation: gradient-animation 25s ease infinite;
+}
+
+/* NEW: Studio background animation */
+@keyframes studio-gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* NEW: Studio background class */
+.animated-gradient-bg-studio {
+  background-color: hsl(var(--background));
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, hsl(var(--primary) / 0.03) 0%, transparent 70%),
+    radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.1) 1px, transparent 0),
+    linear-gradient(-45deg, hsl(var(--background)), hsl(var(--background) / 0.9), hsl(var(--primary) / 0.05), hsl(var(--background)));
+  background-size: 100% 100%, 30px 30px, 400% 400%;
+  animation: studio-gradient-animation 45s ease infinite;
+}
+
+@keyframes revolt-hero-animation {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+.revolt-hero-bg {
+    background: linear-gradient(315deg, hsl(var(--background)) 25%, hsl(var(--primary) / 0.1), hsl(220, 40%, 10%), hsl(var(--background)) 75%);
+    background-size: 400% 400%;
+    animation: revolt-hero-animation 20s ease infinite;
+}
+
+
+@keyframes holo-grid-pan {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.animated-holo-grid {
+    background-color: hsl(var(--background));
+    background-image: 
+        radial-gradient(ellipse at 50% 50%, hsla(215, 50%, 50%, 0.1) 0%, transparent 70%),
+        linear-gradient(hsla(215, 50%, 50%, 0.1) 1px, transparent 1px),
+        linear-gradient(to right, hsla(215, 50%, 50%, 0.1) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
+    animation: holo-grid-pan 60s linear infinite;
+}
+
+
+.text-shadow-custom {
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; transform: translateY(-50%) scale(0.95); }
+  10% { opacity: 1; transform: translateY(-50%) scale(1); }
+  80% { opacity: 1; transform: translateY(-50%) scale(1); }
+  100% { opacity: 0; transform: translateY(-50%) scale(0.95); }
+}
+
+.animate-fade-out {
+  animation: fade-out 5s forwards;
+}
+
+/* Guided Tour Styles */
+.guided-tour-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: hsla(var(--background) / 0.8);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+}
+
+.guided-tour-highlight {
+    position: fixed;
+    border-radius: 12px;
+    box-shadow: 0 0 0 9999px hsla(var(--background) / 0.8);
+    border: 2px solid hsl(var(--primary));
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.guided-tour-popover {
+    position: fixed;
+    background-color: hsl(var(--popover));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--popover-foreground));
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    max-width: 350px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s ease-in-out;
+    z-index: 1001;
+}
+
+/* AuraOS Floating Panels */
+.aura-floating-panel {
+  @apply fixed bg-background/80 backdrop-blur-md rounded-xl shadow-2xl border flex flex-col overflow-hidden;
+}
+
+.aura-floating-panel-header {
+  @apply bg-secondary/50 px-4 py-2 border-b cursor-move flex justify-between items-center;
+}
+
+.aura-floating-panel-content {
+  @apply flex-grow p-0 overflow-y-auto;
+}
+
+/* AuraOS Command Palette */
+.aura-command-palette-overlay {
+  @apply fixed inset-0 bg-background/70 backdrop-blur-sm z-[200] flex justify-center items-start pt-24;
+}
+
+.aura-command-palette-modal {
+  @apply w-full max-w-2xl bg-popover rounded-lg shadow-2xl border flex flex-col max-h-[70vh];
+}
+
+/* AuraOS Bottom Dock */
+.aura-bottom-dock {
+    @apply absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-md border rounded-xl shadow-lg flex items-center gap-2 px-4 py-2 z-50;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px hsl(var(--primary) / 0.2), 0 0 10px hsl(var(--primary) / 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px hsl(var(--primary) / 0.4), 0 0 25px hsl(var(--primary) / 0.4);
+    }
+}
+.premium-glow {
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes thinking-glow {
+    0%, 100% { border-color: hsl(var(--primary) / 0.5); }
+    50% { border-color: hsl(var(--primary)); }
+}
+.thinking-orb {
+    animation: thinking-glow 1.5s ease-in-out infinite, spin 2s linear infinite;
+}
+
+/* Storyboard & Hero Animations */
+@keyframes landing-blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: hsl(var(--primary)); }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: landing-blink-caret .75s step-end infinite;
+  color: hsl(var(--primary));
+  font-weight: 300;
+}
+
+.landing-draw-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: landing-draw 2s linear forwards;
+}
+
+@keyframes landing-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes landing-text-reveal {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.animate-landing-text-reveal {
+    animation: landing-text-reveal 0.8s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
