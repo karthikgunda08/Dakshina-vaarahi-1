@@ -1,0 +1,9 @@
+{
+  "name": "Copy of Dakshin Vaarahi: AI OS",
+  "description": "Dakshin Vaarahi is the definitive end-to-end AI operating system for architecture, engineering, and construction. It is the divine intelligence for architecting reality.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "prompt": ""
+}

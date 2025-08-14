@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FRONTEND ENVIRONMENT VARIABLES:
+    For this app to function correctly, create a file named `.env.local`
+    in the root directory (the same folder as this index.html file) and
+    add the necessary variables. This file is managed by the Vite build system.
+
+    For complete setup, local testing, and production deployment instructions,
+    please refer to the main README.md file in the project root.
+    
+    Example `.env.local` content:
+    VITE_BACKEND_API_URL=http://localhost:3001/api
+    VITE_RAZORPAY_KEY_ID=REPLACE_WITH_YOUR_RAZORPAY_KEY_ID
+  -->
+  <!--
+    PUBLIC ASSETS (Images, Videos, etc.):
+    Static assets like images and icons should be placed in a
+    `public` folder at the root of your project. For example:
+    - Social share image at:        /public/images/social-share.png
+    - App icons at:                 /public/icons/
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicons and PWA Manifest -->
+  <link rel="icon" href="/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#09090b">
+  
+  <!-- SEO & Social Sharing Meta Tags for Dakshin Vaarahi -->
+  <title>Dakshin Vaarahi: The AI Operating System for Architecture</title>
+  <meta name="description" content="Dakshin Vaarahi is the definitive end-to-end AI operating system for architecture, engineering, and construction. It is the divine intelligence for architecting reality.">
+  <meta name="keywords" content="Dakshin Vaarahi, AI architecture, Vastu software, AI architect, generative design, AEC AI, construction automation, digital twin, architectural design software">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="Dakshin Vaarahi: The AI Operating System for Architecture">
+  <meta property="og:description" content="The divine intelligence for architecting reality. The end-to-end AI OS for architecture, engineering, and construction.">
+  <meta property="og:image" content="/images/social-share.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="/">
+  <meta property="twitter:title" content="Dakshin Vaarahi: The AI Operating System for Architecture">
+  <meta property="twitter:description" content="The divine intelligence for architecting reality. The end-to-end AI OS for architecture, engineering, and construction.">
+  <meta property="twitter:image" content="/images/social-share.png">
+
+  <!-- Google Fonts for Branding -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Dakshin Vaarahi",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Web",
+    "description": "The definitive end-to-end AI operating system for architecture, engineering, and construction.",
+    "softwareVersion": "2.0 'Revolt' Edition",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+     "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5280"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Dakshin Vaarahi",
+      "url": "/",
+       "logo": "/icons/icon-512.png"
+    }
+  }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "vite": "https://esm.sh/vite@^7.1.2",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.0.0",
+    "tailwindcss/": "https://esm.sh/tailwindcss@^4.1.11/",
+    "@tailwindcss/typography": "https://esm.sh/@tailwindcss/typography@^0.5.16",
+    "tailwindcss-animate": "https://esm.sh/tailwindcss-animate@^1.0.7",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.12",
+    "fabric": "https://esm.sh/fabric@^6.7.1",
+    "recharts": "https://esm.sh/recharts@^3.1.2",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.3.1",
+    "class-variance-authority": "https://esm.sh/class-variance-authority@^0.7.1",
+    "zustand": "https://esm.sh/zustand@^5.0.7",
+    "socket.io-client": "https://esm.sh/socket.io-client@^4.8.1",
+    "lodash.throttle": "https://esm.sh/lodash.throttle@^4.1.1",
+    "dotenv/": "https://esm.sh/dotenv@^17.2.1/",
+    "http": "https://esm.sh/http@^0.0.1-security",
+    "socket.io": "https://esm.sh/socket.io@^4.8.1",
+    "jsonwebtoken": "https://esm.sh/jsonwebtoken@^9.0.2",
+    "express": "https://esm.sh/express@^5.1.0",
+    "cors": "https://esm.sh/cors@^2.8.5",
+    "mongoose": "https://esm.sh/mongoose@^8.17.1",
+    "helmet": "https://esm.sh/helmet@^8.1.0",
+    "express-rate-limit": "https://esm.sh/express-rate-limit@^8.0.1",
+    "bcryptjs": "https://esm.sh/bcryptjs@^3.0.2",
+    "crypto": "https://esm.sh/crypto@^1.0.1",
+    "dxf-parser": "https://esm.sh/dxf-parser@^1.1.2",
+    "dxf-writer": "https://esm.sh/dxf-writer@^1.18.4",
+    "multer": "https://esm.sh/multer@^2.0.2",
+    "@google/genai": "https://esm.sh/@google/genai@^1.14.0",
+    "razorpay": "https://esm.sh/razorpay@^2.9.6",
+    "express-validator": "https://esm.sh/express-validator@^7.2.1",
+    "three": "https://esm.sh/three@^0.179.1",
+    "three/": "https://esm.sh/three@^0.179.1/",
+    "jspdf": "https://esm.sh/jspdf@^3.0.1",
+    "cypress": "https://esm.sh/cypress@^14.5.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
